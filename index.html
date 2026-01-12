@@ -3,183 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ÑañoTech</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>ÑañoTech | Soluciones Técnicas de Élite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --whatsapp-green: #25D366;
+            --electric-blue: #00d4ff;
+            --deep-black: #050505;
+            --card-bg: rgba(20, 20, 20, 0.8);
+            --text-gray: #b0b0b0;
         }
+
         body {
-            font-family: 'Roboto', sans-serif;
-            background: #f5f5f5;
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--deep-black);
+            color: white;
+            scroll-behavior: smooth;
         }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 80px 20px;
-            text-align: center;
-            position: relative;
-        }
-        header img {
-            max-width: 150px; /* Aumenté el tamaño del logo */
-            margin-bottom: 20px;
-        }
-        header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
-        header p {
-            font-size: 1.2rem;
-            font-weight: 400;
-            margin-bottom: 30px;
-        }
-        header::after {
-            content: "";
-            background: url('https://www.transparenttextures.com/patterns/diagonal-stripes-light.png');
+
+        /* --- LOGO --- */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 30px 5%;
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
-            opacity: 0.05;
+            z-index: 100;
         }
-        .btn-contact {
-            display: inline-block;
-            background-color: #28a745; /* Color verde */
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 500;
-            transition: background-color 0.3s;
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--electric-blue), #0044ff);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex; justify-content: center; align-items: center;
+            font-weight: bold; font-family: 'Orbitron', sans-serif; color: #000;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
         }
-        .btn-contact:hover {
-            background-color: #218838;
-        }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 50px 0;
-        }
-        .services, .about, .contact {
-            padding: 50px 0;
+
+        /* --- HERO --- */
+        header {
+            height: 100vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center;
-            background-color: #fff;
-            margin: 30px 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background: linear-gradient(rgba(5, 5, 5, 0.7), var(--deep-black)),
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover; background-position: center; background-attachment: fixed;
         }
-        h2 {
-            font-size: 2.5rem;
-            font-weight: 500;
-            margin-bottom: 40px;
-            color: #28a745;
-        }
-        .services .service-card {
-            background: #f1f1f1;
-            padding: 30px;
-            border-radius: 8px;
-            margin: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .services .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
-        .service-card h3 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #333;
-        }
-        .service-card p {
-            font-size: 1.2rem;
-            margin-top: 10px;
-            color: #777;
-        }
-        .contact a {
-            font-size: 1.4rem;
-            margin-top: 30px;
-            padding: 15px 40px;
-            background-color: #28a745; /* Cambio de color a verde */
-            color: white;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-        .contact a:hover {
-            background-color: #218838;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 30px 0;
+
+        header h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(3.5rem, 10vw, 6rem); margin: 0; }
+        .status-badge { color: var(--electric-blue); border: 1px solid var(--electric-blue); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; margin-bottom: 20px; animation: pulse 2s infinite; }
+
+        /* --- SECCIÓN POR QUÉ ELEGIRNOS --- */
+        .why-choose-us {
+            padding: 100px 10%;
+            background: #0a0a0a;
             text-align: center;
-            font-size: 1rem;
         }
-        footer a {
-            color: #28a745;
-            text-decoration: none;
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
         }
-        footer a:hover {
-            text-decoration: underline;
+
+        .feature-item i {
+            font-size: 3rem;
+            color: var(--electric-blue);
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px var(--electric-blue));
         }
+
+        .feature-item h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- SERVICIOS --- */
+        .services-section { padding: 100px 10%; }
+        .section-label { text-align: center; margin-bottom: 60px; }
+        .section-label h2 { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; letter-spacing: 3px; }
+        .underline { width: 80px; height: 4px; background: var(--electric-blue); margin: 15px auto; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card {
+            background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05);
+            padding: 40px; border-radius: 20px; transition: 0.4s;
+            backdrop-filter: blur(10px);
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--electric-blue); }
+        .card i { font-size: 2.5rem; color: var(--electric-blue); margin-bottom: 25px; }
+
+        /* --- BOTON CONTACTO --- */
+        .contact-area { padding: 120px 20px; text-align: center; }
+        .btn-whatsapp {
+            display: inline-flex; align-items: center; gap: 15px;
+            background-color: var(--whatsapp-green); color: white;
+            padding: 22px 50px; border-radius: 100px; font-weight: 700;
+            text-decoration: none; font-size: 1.4rem; transition: 0.4s;
+            text-transform: uppercase;
+        }
+        .btn-whatsapp:hover { transform: scale(1.1); box-shadow: 0 0 30px var(--whatsapp-green); }
+
+        footer { padding: 40px; text-align: center; color: #444; font-size: 0.8rem; }
+        @keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
     </style>
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="Logo de ÑañoTech"> <!-- Aquí debes poner la ruta a tu logo -->
-        <h1>ÑañoTech</h1>
-        <p>Tu pana tech de confianza, pa' que nadie te hackee.</p>
-    </header>
 
-    <div class="container">
-        <section class="services">
-            <h2>Servicios</h2>
-            <div class="service-card">
-                <h3>Diagnóstico de seguridad</h3>
-                <p>Identifica posibles amenazas en tu red y dispositivos.</p>
-            </div>
-            <div class="service-card">
-                <h3>Limpieza de virus</h3>
-                <p>Elimina malware, spyware y otros programas maliciosos.</p>
-            </div>
-            <div class="service-card">
-                <h3>Seguridad en redes sociales</h3>
-                <p>Protege tu cuenta de accesos no autorizados y hackeos.</p>
-            </div>
-            <div class="service-card">
-                <h3>Respaldo en la nube</h3>
-                <p>Te ayudo a mantener tus datos seguros y accesibles en todo momento.</p>
-            </div>
-            <div class="service-card">
-                <h3>Paquete mensual para negocios</h3>
-                <p>Soluciones de seguridad para tu empresa, todo en un solo paquete.</p>
-            </div>
-        </section>
-
-        <section class="about">
-            <h2>¿Quién está detrás de ÑañoTech?</h2>
-            <p>Detrás de esta ingeniosa y novedosa página se encuentra un ingeniero en sistemas nacido en Guayaquil, apasionado por la tecnología y la seguridad digital. Mi misión es ayudarte a ti, a tu negocio o emprendimiento a estar protegido y a sacarle el jugo a la tecnología sin complicaciones. Soy tu pana tech de confianza, ese ñaño que te explica las cosas sin tecnicismos y que siempre estará listo para darte una mano cuando más lo necesites.</p>
-        </section>
-
-        <section class="contact">
-            <h2>Contacto</h2>
-            <p>¿Necesitas ayuda inmediata? ¡No dudes en escribirme por WhatsApp!</p>
-            <a href="https://wa.me/593995750360" class="btn-contact">Contáctame por WhatsApp</a>
-        </section>
+    <div class="logo-container">
+        <img src="logo-nanotech.png" alt="ÑañoTech Logo" style="width: 60px; height: auto; filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5));">
+        <div style="font-family: 'Orbitron'; font-size: 1.5rem; letter-spacing: 2px; margin-left: 10px;">
+        Ñaño<span style="color: var(--electric-blue);">Tech</span>
+        </div>
     </div>
 
+    <header>
+        <div class="status-badge">● SISTEMA OPERATIVO: ONLINE</div>
+        <h1>ÑañoTech</h1>
+        <p>Ingeniería de vanguardia para el mantenimiento de tus equipos.</p>
+    </header>
+
+    <section class="why-choose-us">
+        <div class="section-label">
+            <h2>¿POR QUÉ CONFIAR EN NOSOTROS?</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="fas fa-user-check"></i>
+                <h4>Honestidad Total</h4>
+                <p style="color: var(--text-gray)">Diagnósticos reales. No te inventamos fallos que no existen. Transparencia guayaca.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-bolt"></i>
+                <h4>Rapidez Élite</h4>
+                <p style="color: var(--text-gray)">Sabemos que tu tiempo vale oro. Entregas en tiempo récord sin sacrificar calidad.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-medal"></i>
+                <h4>Garantía Real</h4>
+                <p style="color: var(--text-gray)">Todo trabajo está respaldado. Si no queda perfecto, lo solucionamos sin costo extra.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="section-label">
+            <h2>SERVICIOS ESPECIALIZADOs</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-compact-disc"></i>
+                <h3>Sistemas Operativos</h3>
+                <p>Formateo e instalación limpia de Windows o Linux con configuración de drivers y seguridad optimizada.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-thermometer-half"></i>
+                <h3>Mantenimiento Físico</h3>
+                <p>Limpieza interna profunda y cambio de pasta térmica de alto rendimiento para evitar sobrecalentamiento.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-tachometer-alt"></i>
+                <h3>Optimización Élite</h3>
+                <p>Aceleración de sistemas lentos. Eliminamos procesos innecesarios para que tu PC vuele como nueva.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-shield-virus"></i>
+                <h3>Eliminación de Virus</h3>
+                <p>Detección y remoción de malware, troyanos y spyware que ponen en riesgo tu privacidad y velocidad.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Instalación de Programas</h3>
+                <p>Configuración de suites de diseño, ingeniería y oficina con garantía de funcionamiento total.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-file-medical"></i>
+                <h3>Rescate de Datos</h3>
+                <p>Recuperación de archivos críticos y configuración de respaldos seguros para que nunca pierdas nada.</p>
+            </div>
+        </div>
+    </section>
+
+    <style>
+    .adn-section {
+        padding: 100px 10%;
+        background: linear-gradient(45deg, #050505 0%, #111 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mission-box {
+        max-width: 800px;
+        background: rgba(0, 212, 255, 0.02);
+        border-left: 5px solid var(--electric-blue);
+        padding: 40px;
+        border-radius: 0 20px 20px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Efecto de marca de agua de fondo para la misión */
+    .mission-box::after {
+        content: "</>";
+        position: absolute;
+        right: -20px;
+        bottom: -20px;
+        font-size: 15rem;
+        color: rgba(0, 212, 255, 0.03);
+        font-family: 'Orbitron';
+        transform: rotate(-15deg);
+    }
+
+    .mission-box h2 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.8rem;
+        color: var(--electric-blue);
+        margin-top: 0;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .mission-box p {
+        font-size: 1.25rem;
+        line-height: 1.8;
+        color: #ddd;
+        font-style: italic;
+    }
+</style>
+
+<section class="adn-section">
+    <div class="mission-box">
+        <h2>ADN ÑañoTech</h2>
+        <p>
+            "Democratizar el acceso a soporte técnico de alto nivel en Guayaquil, combinando la precisión de la ingeniería con la cercanía de un pana. Nuestra misión es garantizar que tu tecnología nunca sea un obstáculo, sino el motor que impulse tu éxito y tranquilidad digital."
+        </p>
+    </div>
+</section>
+
+    <section class="contact-area">
+        <h2 style="font-family: 'Orbitron'; margin-bottom: 40px;">¿LISTO PARA ELEVAR TU TECNOLOGÍA?</h2>
+        <a href="https://wa.me/593992520368?text=Hola%20%C3%91a%C3%B1oTech,%20vi%20tu%20p%C3%A1gina%20web%20y%20necesito%20ayuda%20con%20un%20equipo." class="btn-whatsapp" target="_blank">
+            <i class="fab fa-whatsapp" style="font-size: 1.8rem;"></i>
+            Contáctame
+        </a>
+    </section>
+
     <footer>
-        <p>&copy; 2025 ÑañoTech | Todos los derechos reservados</p>
-        <p>Desarrollado con ❤️ por el Ingeniero Joel Contreras</a></p>
+        &copy; 2026 ÑañoTech | Guayaquil, Ecuador.
     </footer>
+
 </body>
 </html>

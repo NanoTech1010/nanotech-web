@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÑañoTech | Elite Technical Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --whatsapp-green: #25D366;
+            --electric-blue: #00d4ff;
+            --deep-black: #050505;
+            --card-bg: rgba(15, 15, 15, 0.8);
+            --text-gray: #b0b0b0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--deep-black);
+            color: white;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* --- LOGO --- */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 30px 5%;
+            position: absolute;
+            z-index: 100;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--electric-blue), #0044ff);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+        }
+
+        /* --- HERO SECTION --- */
+        header {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: 
+                linear-gradient(rgba(5, 5, 5, 0.6), var(--deep-black)),
+                url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .status-badge {
+            background: rgba(0, 211, 255, 0.1);
+            border: 1px solid var(--electric-blue);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--electric-blue);
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; text-shadow: 0 0 10px var(--electric-blue); }
+            100% { opacity: 0.5; }
+        }
+
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(3.5rem, 10vw, 6rem);
+            margin: 0;
+            line-height: 1;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin-top: 20px;
+        }
+
+        /* --- SERVICIOS --- */
+        .services-section {
+            padding: 100px 10%;
+            position: relative;
+        }
+
+        .section-label {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            letter-spacing: 3px;
+            margin: 0;
+        }
+
+        .section-label .underline {
+            width: 80px;
+            height: 4px;
+            background: var(--electric-blue);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 40px;
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            border-color: var(--electric-blue);
+            background: rgba(0, 212, 255, 0.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: var(--electric-blue);
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* --- MARCAS --- */
+        .brands {
+            padding: 50px;
+            text-align: center;
+            opacity: 0.5;
+            filter: grayscale(1);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 5px;
+        }
+
+        /* --- CONTACTO --- */
+        .contact-area {
+            padding: 120px 20px;
+            text-align: center;
+            background: linear-gradient(to top, #0a0a0a, var(--deep-black));
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background-color: var(--whatsapp-green);
+            color: white;
+            padding: 22px 50px;
+            border-radius: 100px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.4rem;
+            transition: 0.4s;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+            text-transform: uppercase;
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 20px 40px rgba(37, 211, 102, 0.5);
+        }
+
+        footer {
+            padding: 60px;
+            text-align: center;
+            color: #333;
+            font-size: 0.9rem;
+            border-top: 1px solid #111;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-container">
+        <div class="logo-icon">Ñ</div>
+        <div style="font-family: 'Orbitron'; font-size: 1.5rem; letter-spacing: 2px;">Ñaño<span style="color: var(--electric-blue);">Tech</span></div>
+    </div>
+
+    <header>
+        <div class="status-badge">● Sistema Operativo: Online</div>
+        <h1>ÑañoTech</h1>
+        <p>Soluciones de ingeniería aplicadas al mantenimiento y optimización de hardware y software de alto rendimiento.</p>
+    </header>
+
+    <div class="brands">
+        WINDOWS • LINUX • DELL • HP • ASUS • LENOVO • APPLE
+    </div>
+
+    <section class="services-section">
+        <div class="section-label">
+            <h2>NUESTROS SERVICIOS</h2>
+            <div class="underline"></div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-compact-disc"></i>
+                <h3>Sistemas Operativos</h3>
+                <p>Formateo profesional con instalación limpia de Windows o Linux. Incluye configuración de drivers y seguridad inicial.</p>
+            </div>
+            
+            <div class="card">
+                <i class="fas fa-thermometer-half"></i>
+                <h3>Mantenimiento Físico</h3>
+                <p>Limpieza profunda de componentes y aplicación de pasta térmica de grado industrial para máxima refrigeración.</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-tachometer-alt"></i>
+                <h3>Optimización Élite</h3>
+                <p>Eliminamos el cuello de botella de tu sistema para que tu PC vuele como el primer día. Ideal para gaming y trabajo pesado.</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-user-shield"></i>
+                <h3>Desinfección Total</h3>
+                <p>Detección y remoción de malware, troyanos y mineros de criptomonedas que ralentizan y espían tu equipo.</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Software de Ingeniería</h3>
+                <p>Instalación garantizada de suites profesionales, herramientas de diseño y programas de oficina especializados.</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-file-medical"></i>
+                <h3>Rescate de Datos</h3>
+                <p>Recuperación de archivos perdidos en discos dañados y creación de sistemas de respaldo automatizados en la nube.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-area">
+        <h2 style="font-family: 'Orbitron'; margin-bottom: 20px;">¿Necesitas soporte ahora mismo?</h2>
+        <p style="color: var(--text-gray); margin-bottom: 50px;">Atención inmediata y soluciones garantizadas por ingenieros.</p>
+        <a href="https://wa.me/593995750360" class="btn-whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            Contáctame
+        </a>
+    </section>
+
+    <footer>
+        &copy; 2026 ÑañoTech. Guayaquil, Ecuador. <br>
+        Tecnología con sello guayaco.
+    </footer>
+
+</body>
+</html>
