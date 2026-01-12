@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://joelf10.github.io/nanotech-web/sitemap.xml
